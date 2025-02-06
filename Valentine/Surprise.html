@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            background-color: #FFC0CB; /* Baby pink background */
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            margin-top: 50px;
+        }
+        h2 {
+            color: #b30000;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .yes-button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            font-size: 24px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .yes-button:hover {
+            transform: scale(1.1);
+        }
+        .no-button {
+            background-color: #FF4C4C; /* Red */
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .no-button:hover {
+            transform: scale(1.1);
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 200px; /* Adjust size as needed */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Will you be my Valentine?</h2>
+    <button class="yes-button" onclick="handleYesClick()">Yes</button>
+    <button class="no-button" onclick="handleNoClick()">No</button>
+
+    <div class="image-container">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGppZzZvbHBmZmlheWlvZjAzcHpkMHozd2x4NXc4dmYxODJhOHc0MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jZTFE0t1uEaVLRshgY/giphy.gif" alt="Cute Animated Character">
+    </div>
+
+    <script>
+        const noButton = document.querySelector(".no-button"); 
+        const yesButton = document.querySelector(".yes-button");
+
+        const messages = [
+            "Jaz, are you sure?",
+            "Really sure??",
+            "Are you positive?",
+            "Choco muffin pwease...",
+            "Just think about it!",
+	    "If you say no, I will be really sad...",
+	    "I will be very sad...",
+	    "VERY VERY SAD JAAZZZZ...",
+        ];
+        
+        let messageIndex = 0;
+
+        function handleNoClick() {
+            noButton.textContent = messages[messageIndex]; 
+            messageIndex = (messageIndex + 1) % messages.length; 
+
+            const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = `${currentSize * 1.5}px`;
+        }
+
+        function handleYesClick() {
+            window.location.href = "yes_page.html";  /* Redirects to the second page */
+        }
+    </script>
+
+</body>
+</html>
